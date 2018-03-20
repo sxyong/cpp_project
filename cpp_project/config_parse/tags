@@ -1,0 +1,21 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ConfigParse	ConfigParse.cpp	/^ConfigParse::ConfigParse():m_bIsLoad(false)$/;"	f	class:ConfigParse
+ConfigParse	ConfigParse.h	/^class ConfigParse$/;"	c
+GetNameValue	ConfigParse.cpp	/^int ConfigParse::GetNameValue(const char* pName, char*& pValue)$/;"	f	class:ConfigParse
+Load	ConfigParse.cpp	/^int ConfigParse::Load(const char* pData, int nLen)$/;"	f	class:ConfigParse
+Load	ConfigParse.cpp	/^int ConfigParse::Load(const char* pFileName)$/;"	f	class:ConfigParse
+MAX_NAME_LEN	ConfigParse.cpp	7;"	d	file:
+MAX_VALUE_LEN	ConfigParse.cpp	8;"	d	file:
+ParseLine	ConfigParse.cpp	/^int ConfigParse::ParseLine(const char* pStart, const char* pEnd)$/;"	f	class:ConfigParse
+bin	Makefile	/^bin = a$/;"	m
+m_bIsLoad	ConfigParse.h	/^		bool				m_bIsLoad;			\/\/是否加载配置$/;"	m	class:ConfigParse
+m_mapContainer	ConfigParse.h	/^		map<string, string>	m_mapContainer;		\/\/名称-值的容器$/;"	m	class:ConfigParse
+main	main.cpp	/^int main(int argc, char* argv[])$/;"	f
+obj	Makefile	/^obj = $(src:.cpp=.o)$/;"	m
+src	Makefile	/^src = $(shell ls *.cpp)$/;"	m
+~ConfigParse	ConfigParse.cpp	/^ConfigParse::~ConfigParse()$/;"	f	class:ConfigParse
