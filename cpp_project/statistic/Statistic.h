@@ -22,8 +22,8 @@ typedef enum en_statistic_type
 class Statistic
 {
 	public:
-		static void Add(int nCoreIndex, en_statistic_type type);
-		static void Dec(int nCoreIndex, en_statistic_type type);
+		static void Add(int nCoreIndex, en_statistic_type type, int nValue = 1);
+		static void Dec(int nCoreIndex, en_statistic_type type, int nValue = 1);
 
 		static uint64_t GetCount(en_statistic_type type);
 

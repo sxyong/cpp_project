@@ -2,14 +2,14 @@
 
 uint64_t Statistic::m_nNum[MAX_CORE_NUM][ST_TYPE_COUNT] = {0};
 
-void Statistic::Add(int nCoreIndex, en_statistic_type type)
+void Statistic::Add(int nCoreIndex, en_statistic_type type, int nValue)
 {
-	m_nNum[nCoreIndex][type]++;
+	m_nNum[nCoreIndex][type] += nValue;
 }
 
-void Statistic::Dec(int nCoreIndex, en_statistic_type type)
+void Statistic::Dec(int nCoreIndex, en_statistic_type type, int nValue)
 {
-	m_nNum[nCoreIndex][type]--;
+	m_nNum[nCoreIndex][type] -= nValue;
 }
 	
 uint64_t Statistic::GetCount(en_statistic_type type)
