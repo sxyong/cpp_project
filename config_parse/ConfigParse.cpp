@@ -1,7 +1,7 @@
 #include <iostream>
+#include <fstream>
 #include <stdio.h>
 #include <stdlib.h>
-#include <memory.h>
 #include "ConfigParse.h"
 
 #define MAX_NAME_LEN  	256
@@ -19,48 +19,23 @@ ConfigParse::~ConfigParse()
 
 int ConfigParse::Load(const char* pFileName)
 {
-	if(pFileName == NULL)
-		return -1;
-
 	if(m_bIsLoad)
 		return 0;
 
-	FILE*	fp = fopen(pFileName, "rb");
-	int 	nSize = 0;
+	ifstream f(pFileName);
+	if(!f.is_open())
+		return -1;
 
-	if(fp == NULL)
-		return -2;
-	
-	fseek(fp, 0, SEEK_END);
-	nSize = ftell(fp);
-	fseek(fp, 0, SEEK_SET);
+	m_bIsLoad = true;
 
-	char* pBuf = (char*)malloc(nSize);
-	if(pBuf == NULL)
-		return -3;
-
-	if(fread(pBuf, 1, nSize, fp) != nSize)
+	char buf[1024];
+	while(f.getline(buf, sizeof(buf)))
 	{
-		free(pBuf);
-		pBuf = NULL;
-		fclose(fp);
-		fp = NULL;
-
-		return -4;
+		if(ParseLine(buf, buf + f.gcount()) != 0)
+			return -2;
 	}
 
-	if(Load(pBuf, nSize) != 0)
-	{
-		free(pBuf);
-		fclose(fp);
-		pBuf = NULL;
-		return -4;
-	}
-
-	free(pBuf);
-	pBuf = NULL;
-	fclose(fp);
-	fp = NULL;
+	f.close();
 
 	return 0;
 }
